@@ -1,0 +1,53 @@
+
+<style>
+/* Der äußere Rahmen (Sichtfenster) */
+.zoom-fade-container {
+  width: 100%;
+  max-width: 600px; /* Maximale Breite des Bildes in der Beschreibung */
+  height: 400px;    /* Gewünschte Höhe des Bildes */
+  overflow: hidden; /* Schneidet alles ab, was über den Rand zoomt */
+  position: relative;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+}
+
+/* Das animierte Bild */
+.zoom-fade-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* Name der Animation | Dauer (10s) | Endlosschleife | Sanfter Verlauf */
+  animation: zoomAndFade 10s infinite ease-in-out;
+}
+
+/* Ablauf der Animation (Zoom & Fade) */
+@keyframes zoomAndFade {
+  0% {
+    transform: scale(1);      /* Startgröße normal */
+    opacity: 0.3;             /* Leicht ausgeblendet am Anfang */
+  }
+  25% {
+    opacity: 1;               /* Voll eingeblendet */
+  }
+  50% {
+    transform: scale(1.15);   /* Bei der Hälfte um 15% hineingezoomt */
+    opacity: 1;               /* Bleibt voll sichtbar */
+  }
+  75% {
+    opacity: 1;               /* Bleibt sichtbar beim Herauszoomen */
+  }
+  100% {
+    transform: scale(1);      /* Zurück zur Ausgangsgröße */
+    opacity: 0.3;             /* Blendet für den nahtlosen Übergang wieder aus */
+  }
+}
+</style>
+
+<!-- Das Anzeige-Element in der Beschreibung -->
+<div class="zoom-fade-container">
+  <img src="https://dalbeck-dev.github.io/fantastic-palm-tree/pics/fila/20260730_094522.jpg" class="zoom-fade-image" alt="Produkt-Animation">
+</div>
